@@ -147,7 +147,7 @@ unset __conda_setup
 stty werase \^H
 
 # copy .bashrc (this file), .bash_aliases and .vimrc to setupNdots repo
-cp ~/.bashrc ~/setupNdots/.bashrc
-cp ~/.bash_aliases ~/setupNdots/.bash_aliases
-cp ~/.vimrc ~/setupNdots/.vimrc
+#cp ~/.bashrc ~/setupNdots/.bashrc
+#cp ~/.bash_aliases ~/setupNdots/.bash_aliases
+#cp ~/.vimrc ~/setupNdots/.vimrc
 

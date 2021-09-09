@@ -1,5 +1,7 @@
 CFLAGS= -Wall -g
 
+ROOT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 %.o: %.c
 	gcc $(CFLAGS) $^ -o $@ 
 	for testfile in $(wildcard *.in); do\
@@ -22,10 +24,10 @@ CFLAGS= -Wall -g
 	rm $(basename $^)
 
 %.submit: %.c
-	__file:= $(abspath $(lastword $(MAKEFILE_LIST)))
-	__file_dir := $(dir $(mkfile_path)) # absolute path to the dir containing this makefile
-	python3 __file_dir/helpers/submit.py $^
+	python3 $(ROOT_DIR)/helpers/submit.py $^
 
+%.clean: clean
+	rm $(basename $@)
 
 clean: $(wildcard *.guess)
 	rm $? -f
