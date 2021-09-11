@@ -7,17 +7,14 @@ filetype on
 filetype plugin on
 filetype indent on " file type based indentation
 
+" Makes makefiles use tabs instead of 4 spaces when pressing tab
+autocmd FileType make,mk set noexpandtab shiftwidth=8 softtabstop=0
+
 
 " Comments in Vimscript start with a `"`.
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
-
-autocmd FileType make,mk set noexpandtab shiftwidth=8 softtabstop=0
-
 set nocompatible
-
-" Turn on syntax highlighting.
-syntax on
 
 " Disable the default Vim startup message.
 set shortmess+=I
@@ -71,4 +68,19 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
+" Plugins using the vim-plug plugin plugin manager
+" Automatically installs vim-plug if it isn't already
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()
+Plug 'preservim/NERDTree'   " file overview/manager on the left side use command NERDTree to view file
+Plug 'morhetz/gruvbox'      " Colorscheme plugin which includes langauge specific colouring
+Plug 'dense-analysis/ale'   " linting for most filetypes
+call plug#end()
 
+autocmd vimenter * ++nested colorscheme gruvbox " Not sure, but says to include this in the installation of gruvbox
+set background=dark    " Setting dark mode
+let NERDTreeShowHidden=1 " Makes so that NERDTree shows hidden files aswell by default
