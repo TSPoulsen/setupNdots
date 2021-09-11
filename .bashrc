@@ -150,5 +150,4 @@ stty werase \^H
 #cp ~/.bashrc ~/setupNdots/.bashrc
 #cp ~/.bash_aliases ~/setupNdots/.bash_aliases
 #cp ~/.vimrc ~/setupNdots/.vimrc
-. /home/tim/repositories/personal/setupNdots/gruvboxPalette.sh
 
