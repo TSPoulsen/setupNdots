@@ -90,3 +90,6 @@ autocmd vimenter * ++nested colorscheme gruvbox " Not sure, but says to include 
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 set background=dark    " Setting dark mode
 let NERDTreeShowHidden=1 " Makes so that NERDTree shows hidden files aswell by default
+
+" Disabel auto commenting on the next line
+au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
