@@ -11,6 +11,11 @@ FILES = ['.bashrc','.vimrc', '.bash_aliases']
 
 
 def setup():
+    ans = None
+    while ans not in ['y','n']:
+        ans = input("Are you sure you want to overwrite your dotfiles [y/n]?")
+    if ans == 'n': return
+
     for fil in FILES:
         source =        os.path.join(FILE_DIR,fil)
         destination =   os.path.join(HOME,fil)

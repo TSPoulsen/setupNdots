@@ -86,5 +86,7 @@ call plug#end()
 
 let g:ale_sign_column_always = 1 " make so that sign column when editing is always show and doesn't pop in and out of existing shifting the whole screen
 autocmd vimenter * ++nested colorscheme gruvbox " Not sure, but says to include this in the installation of gruvbox
+" Sets transparent background
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 set background=dark    " Setting dark mode
 let NERDTreeShowHidden=1 " Makes so that NERDTree shows hidden files aswell by default
