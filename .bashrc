@@ -145,4 +145,6 @@ unset __conda_setup
 
 # Keybind ctrl backspace to delete word
 stty werase \^H
+export VISUAL=vim
+export EDITOR="$VISUAL"
 

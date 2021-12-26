@@ -94,6 +94,13 @@ autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 set background=dark    " Setting dark mode
 let NERDTreeShowHidden=1 " Makes so that NERDTree shows hidden files aswell by default
 let g:instant_markdown_mathjax = 1 " allow rendering mathemathical formulars and such in markdown
+" Use Ctrl-j/k for adding a multicursor down/up
+let g:BASH_Ctrl_j = 'off'
+let g:BASH_Ctrl_k = 'off'
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"]    = '<C-j>' " Add multicursor down
+let g:VM_maps["Add Cursor Up"]      = '<C-k>' " Add multicursor up
+
 
 " Disabel auto commenting on the next line
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
