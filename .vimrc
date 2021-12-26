@@ -22,6 +22,7 @@ set shortmess+=I
 " Show line numbers.
 set number
 
+set shortmess+=I
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
 
@@ -82,6 +83,8 @@ call plug#begin()
 Plug 'preservim/NERDTree'   " file overview/manager on the left side use command NERDTree to view file
 Plug 'morhetz/gruvbox'      " Colorscheme plugin which includes langauge specific colouring
 Plug 'dense-analysis/ale'   " linting for most filetypes
+Plug 'instant-markdown/vim-instant-markdown', { 'for': 'markdown', 'do': 'yarn install' } " Plugin for markdown preview in realtime (It is very nice and smooth)
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Plugin for having multiple cursors in vim
 call plug#end()
 
 let g:ale_sign_column_always = 1 " make so that sign column when editing is always show and doesn't pop in and out of existing shifting the whole screen
@@ -90,6 +93,7 @@ autocmd vimenter * ++nested colorscheme gruvbox " Not sure, but says to include 
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 set background=dark    " Setting dark mode
 let NERDTreeShowHidden=1 " Makes so that NERDTree shows hidden files aswell by default
+let g:instant_markdown_mathjax = 1 " allow rendering mathemathical formulars and such in markdown
 
 " Disabel auto commenting on the next line
 au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
