@@ -147,4 +147,13 @@ unset __conda_setup
 stty werase \^H
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# Setup for showing git branch in terminal
+if [ ! -f ~/.git-prompt.sh ]; then
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
+fi
+. ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1 # Remove this if you don't want it to show a * when there are file changes
+export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 "(%s)")\$ '
 
